@@ -15,13 +15,14 @@ Players = []
 
 
 # def clean_data():
-# store all data in proper data forms ie numbers as ints and variables as strings
+# store height as an int
+# store experience as a boolean value (true/false)
 # .append new data to players[] ??
 
 
 # def balance_teams():
 # balance teams and store them in proper lists with appropriate information
-
+# example num_players_team = len(PLAYERS) / len(TEAMS)
 
 def main():
     print('\n1.) Bandits\n2.) Panthers\n3.) Warriors\n')
@@ -39,6 +40,9 @@ def main():
             # elif team_choice == 3:
             # display Warriors stats
             # press enter to continue
+                # teams name is a string
+                # total players is displayed as an int
+                # player names are strings separated by commas
         except ValueError:
             print('\nERROR!\nThat is not a valid option, please choose and option from the list\n')
             pass
