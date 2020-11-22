@@ -15,6 +15,7 @@ Players = []
     #store all data in proper data forms ie numbers as ints and variables as strings 
     # .append new data to players[] ??
 
+
 #def balance_teams():
     #balance teams and store them in proper lists with appropriate information
 
@@ -39,6 +40,7 @@ def main():
             print('\nERROR!\nThat is not a valid option, please choose and option from the list\n')
             pass
 
+
 def menu():
     print("\n\n --- MENU --- \n\n")
     print('Here are your choices:\n 1.) Display Team Stats\n 2.) Quit\n')
@@ -55,6 +57,7 @@ def menu():
         except ValueError:
             print('\nERROR!\nThat is not a valid option please enter an option from the list\n')
             continue 
+
 
 if __name__ == '__main__':
     #clean_data()
