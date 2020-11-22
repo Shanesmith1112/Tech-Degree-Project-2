@@ -1,5 +1,4 @@
 import sys
-
 # import constants
 
 print("******** BASKETBALL TEAM STATS TOOL ********")
@@ -43,6 +42,7 @@ def main():
                 # teams name is a string
                 # total players is displayed as an int
                 # player names are strings separated by commas
+
         except ValueError:
             print('\nERROR!\nThat is not a valid option, please choose and option from the list\n')
             pass
