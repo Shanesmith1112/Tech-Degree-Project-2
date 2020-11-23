@@ -1,16 +1,13 @@
 import sys
-# import constants
+import constants
+
 
 print("******** BASKETBALL TEAM STATS TOOL ********")
 
+Player_info = []
 Bandits = []
 Panthers = []
 Warriors = []
-
-Players = []
-
-
-# players[] may not be needed in the end
 
 
 # def clean_data():
