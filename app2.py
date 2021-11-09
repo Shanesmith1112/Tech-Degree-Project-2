@@ -28,9 +28,9 @@ def balance_teams():
     # example num_players_team = len(PLAYERS) / len(TEAMS)
 
 
-def continue():
-    continue = input("Press ENTER to Continue...")
-    if continue == " ":
+def press_enter():
+    press_e = input("Press ENTER to Continue...")
+    if press_e == " ":
         menu()
     else:
         menu()
@@ -44,15 +44,15 @@ def main():
                 print('\nERROR!\nThat is not a valid option\n')
             elif team_choice == 1:
                 print(Bandits)
-                continue()
+                press_enter()
             # press enter to continue
             elif team_choice == 2:
                 print(Panthers)
-                continue()
+                press_enter()
             # press enter to continue
             elif team_choice == 3:
                 print(Warriors)
-                continue()
+                press_enter()
             # press enter to continue
                 # teams name is a string
                 # total players is displayed as an int
