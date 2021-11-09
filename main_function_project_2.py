@@ -1,24 +1,32 @@
+import copy
 import sys
 import constants
 
 
-print("******** BASKETBALL TEAM STATS TOOL ********")
-
-Player_info = []
+player_info = [player for player in constants.PLAYERS.copy()]
 Bandits = []
 Panthers = []
 Warriors = []
 
-
-# def clean_data():
-# store height as an int
-# store experience as a boolean value (true/false)
-# .append new data to players[] ??
+print("******** BASKETBALL TEAM STATS TOOL ********")
 
 
-# def balance_teams():
-# balance teams and store them in proper lists with appropriate information
-# example num_players_team = len(PLAYERS) / len(TEAMS)
+def clean_data():
+    for player in player_info:
+        # store height as an int
+        player['height'] = int(player['height'][:2])
+        #store experience as a boolean value (true/false)
+        if player['experience'] == "YES":
+            player['experience'] = "True"
+        if player['experience'] != "YES":
+            player['experience'] = "FALSE"
+
+
+def balance_teams():
+    # balance teams and store them in proper lists with appropriate information
+    for player in player_info:
+    # example num_players_team = len(PLAYERS) / len(TEAMS)
+
 
 def main():
     print('\n1.) Bandits\n2.) Panthers\n3.) Warriors\n')
@@ -27,14 +35,14 @@ def main():
             team_choice = int(input('Please enter an option > '))
             if team_choice < 1 or team_choice > 3:
                 print('\nERROR!\nThat is not a valid option\n')
-            # elif team_choice == 1:
-            # display Bandits stats
+            elif team_choice == 1:
+                print(Bandits)
             # press enter to continue
-            # elif team_choice == 2:
-            # display Panthers stats
+            elif team_choice == 2:
+                print(Panthers)
             # press enter to continue
-            # elif team_choice == 3:
-            # display Warriors stats
+            elif team_choice == 3:
+                print(Warriors)
             # press enter to continue
                 # teams name is a string
                 # total players is displayed as an int
