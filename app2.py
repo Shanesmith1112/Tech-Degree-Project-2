@@ -1,7 +1,6 @@
 import copy
 import constants
 import sys
-import math
 
 
 player_info = copy.deepcopy(constants.PLAYERS)
@@ -11,9 +10,6 @@ bandits = []
 warriors = []
 exp_players = []
 noexp_players = []
-
-
-print("******** BASKETBALL TEAM STATS TOOL ********")
 
 
 def clean_data():
@@ -53,23 +49,33 @@ def balance_noexp():
 def height_tool(team):
     temp_heights = []
     for player in team.copy():
-        temp_heights.append(player['height'][0])
-    # use list of heights to find the average (mean) height
-        # Add all heights in list together and store as a new value .mean()?
-        # divide new value by len(team) and store as final value
-        # print final value
+        temp_heights.append(player['height'])
+    total = sum(temp_heights)
+    average_height = total / len(team)
+    print("\nThe average player height is {} inches.".format(int(average_height)))
 
 
 def team_stats(team):
-    print("There are {} players on the team.".format(int(len(team))))
+    print("\nThere are {} experienced players on the team.".format(int(len(exp_players) / len(teams))))
+    print("There are {} inexperienced players on the team.".format(int(len(noexp_players) / len(teams))))
     team_players = []
     for player in team.copy():
         team_players.append(player['name'])
+    print("\nThe players on the team are...")
     print(team_players)
+    # need to get team_players list into one string
+
+def team_guardians(team):
+    team_parents = []
+    for player in team.copy():
+        team_parents.append(player['guardians'])
+    print("\nThe parent/guardians for the team are...")
+    print(team_parents)
+    # need to get team_parents list into one string
 
 
 def press_enter():
-    press_e = input("Press ENTER to Continue...")
+    press_e = input("\nPress ENTER to Continue...\n")
     if press_e == " ":
         menu()
     else:
@@ -84,18 +90,22 @@ def main():
             if team_choice < 1 or team_choice > 3:
                 print('\nERROR!\nThat is not a valid option\n')
             elif team_choice == 1:
-                print("You have chosen the Bandits!")
+                print("\nYou have chosen the Bandits!")
                 team_stats(bandits)
-                # height_tool(bandits)
-                # use .join method to get a list of players in one string
+                height_tool(bandits)
+                team_guardians(bandits)
                 press_enter()
             elif team_choice == 2:
-                print("You have Chosen the Panthers!")
+                print("\nYou have Chosen the Panthers!")
                 team_stats(panthers)
+                height_tool(panthers)
+                team_guardians(panthers)
                 press_enter()
             elif team_choice == 3:
-                print("You have chosen the Warriors!")
+                print("\nYou have chosen the Warriors!")
                 team_stats(warriors)
+                height_tool(warriors)
+                team_guardians(warriors)
                 press_enter()
         except ValueError:
             print('\nERROR!\nThat is not a valid option, please choose and option from the list\n')
@@ -103,13 +113,14 @@ def main():
 
 
 def menu():
+    print("\n******** BASKETBALL TEAM STATS TOOL ********\n")
     print("\n\n --- MENU --- \n\n")
     print('Here are your choices:\n 1.) Display Team Stats\n 2.) Quit\n')
     while True:
         try:
             choice = int(input('Please enter an option > '))
             if choice == 2:
-                print('\nThank you for using Basketball Team Stats Tool')
+                print('\nThank you for using Basketball Team Stats Tool!')
                 exit()
             elif choice < 1 or choice > 2:
                 print('\nERROR!\nThat is not a valid option.\n')
