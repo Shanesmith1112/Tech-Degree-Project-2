@@ -71,7 +71,7 @@ def team_guardians(team):
     for player in team.copy():
         team_parents.append(player['guardians'])
     print("\nThe parent/guardians for the team are...")
-    print(", ".join(team_parents))
+    print(team_parents)
     # need to get team_parents list to print in one string
 
 
