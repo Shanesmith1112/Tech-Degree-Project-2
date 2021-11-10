@@ -69,10 +69,10 @@ def team_stats(team):
 def team_guardians(team):
     team_parents = []
     for player in team.copy():
-        team_parents.append(player['guardians'])
+        team_parents.append(', '.join(player['guardians']))
+    parents = ", ".join(team_parents)
     print("\nThe parent/guardians for the team are...")
-    print(team_parents)
-    # need to get team_parents list to print in one string
+    print(parents)
 
 
 def press_enter():
