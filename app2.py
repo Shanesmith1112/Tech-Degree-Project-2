@@ -1,6 +1,7 @@
 import copy
 import constants
 import sys
+import math
 
 
 player_info = copy.deepcopy(constants.PLAYERS)
@@ -10,7 +11,6 @@ bandits = []
 warriors = []
 exp_players = []
 noexp_players = []
-num_players_team = int(len(constants.PLAYERS) / len(constants.TEAMS))
 
 
 print("******** BASKETBALL TEAM STATS TOOL ********")
@@ -40,6 +40,7 @@ def balance_exp():
 
 
 def balance_noexp():
+    num_players_team = int(len(constants.PLAYERS) / len(constants.TEAMS))
     for player in noexp_players:
         if len(panthers) < num_players_team:
             panthers.append(player)
@@ -47,6 +48,24 @@ def balance_noexp():
             bandits.append(player)
         elif len(warriors) < num_players_team:
             warriors.append(player)
+
+
+def height_tool(team):
+    temp_heights = []
+    for player in team.copy():
+        temp_heights.append(player['height'][0])
+    # use list of heights to find the average (mean) height
+        # Add all heights in list together and store as a new value .mean()?
+        # divide new value by len(team) and store as final value
+        # print final value
+
+
+def team_stats(team):
+    print("There are {} players on the team.".format(int(len(team))))
+    team_players = []
+    for player in team.copy():
+        team_players.append(player['name'])
+    print(team_players)
 
 
 def press_enter():
@@ -66,15 +85,17 @@ def main():
                 print('\nERROR!\nThat is not a valid option\n')
             elif team_choice == 1:
                 print("You have chosen the Bandits!")
-                print("There are {} players on the team.".format(int(len(bandits))))
+                team_stats(bandits)
+                # height_tool(bandits)
+                # use .join method to get a list of players in one string
                 press_enter()
             elif team_choice == 2:
                 print("You have Chosen the Panthers!")
-                print("There are {} players on the team.".format(int(len(panthers))))
+                team_stats(panthers)
                 press_enter()
             elif team_choice == 3:
                 print("You have chosen the Warriors!")
-                print("There are {} players on the team.".format(int(len(warriors))))
+                team_stats(warriors)
                 press_enter()
         except ValueError:
             print('\nERROR!\nThat is not a valid option, please choose and option from the list\n')
