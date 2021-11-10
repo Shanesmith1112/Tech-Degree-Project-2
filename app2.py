@@ -1,6 +1,5 @@
 import copy
 import constants
-import sys
 
 
 player_info = copy.deepcopy(constants.PLAYERS)
@@ -61,9 +60,10 @@ def team_stats(team):
     team_players = []
     for player in team.copy():
         team_players.append(player['name'])
+    players = ", ".join(team_players)
     print("\nThe players on the team are...")
-    print(team_players)
-    # need to get team_players list into one string
+    print(players)
+
 
 def team_guardians(team):
     team_parents = []
@@ -71,7 +71,7 @@ def team_guardians(team):
         team_parents.append(player['guardians'])
     print("\nThe parent/guardians for the team are...")
     print(team_parents)
-    # need to get team_parents list into one string
+    # need to get team_parents list to print in one string
 
 
 def press_enter():
