@@ -10,27 +10,23 @@ bandits = []
 warriors = []
 exp_players = []
 noexp_players = []
-
 num_players_team = int(len(constants.PLAYERS) / len(constants.TEAMS))
+
 
 print("******** BASKETBALL TEAM STATS TOOL ********")
 
 
 def clean_data():
     for player in player_info:
-        # store height as an int
         player["height"] = int(player["height"][:2])
-        #store experience as a boolean value (true/false)
         if player['experience'] == "YES":
             player['experience'] = "TRUE"
             exp_players.append(player)
         if player['experience'] == "NO":
             player['experience'] = "FALSE"
             noexp_players.append(player)
-        # Additionally clean the guardians string so that it becomes a List of strings. Remove the and between the names and storing each guardian in a List together for that player.
         player['guardians'] = player['guardians'].split(" and ")
 
-# Balance teams
 
 def balance_exp():
     num_exp_players = int(len(exp_players) / len(constants.TEAMS))
@@ -69,24 +65,17 @@ def main():
             if team_choice < 1 or team_choice > 3:
                 print('\nERROR!\nThat is not a valid option\n')
             elif team_choice == 1:
-                print(bandits)
-                # expand on this to format properly
+                print("You have chosen the Bandits!")
+                print("There are {} players on the team.".format(int(len(bandits))))
                 press_enter()
-            # press enter to continue
             elif team_choice == 2:
-                print(panthers)
-                # expand on this to format properly
+                print("You have Chosen the Panthers!")
+                print("There are {} players on the team.".format(int(len(panthers))))
                 press_enter()
-            # press enter to continue
             elif team_choice == 3:
-                print(warriors)
-                # expand on this to format properly
+                print("You have chosen the Warriors!")
+                print("There are {} players on the team.".format(int(len(warriors))))
                 press_enter()
-            # press enter to continue
-                # teams name is a string
-                # total players is displayed as an int
-                # player names are strings separated by commas
-
         except ValueError:
             print('\nERROR!\nThat is not a valid option, please choose and option from the list\n')
             pass
@@ -115,6 +104,3 @@ if __name__ == '__main__':
     balance_exp()
     balance_noexp()
     menu()
-
-
-
