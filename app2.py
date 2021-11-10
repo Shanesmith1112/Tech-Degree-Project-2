@@ -55,6 +55,7 @@ def height_tool(team):
 
 
 def team_stats(team):
+    print("\nThere are {} players on the team in total.".format(int(len(team))))
     print("\nThere are {} experienced players on the team.".format(int(len(exp_players) / len(teams))))
     print("There are {} inexperienced players on the team.".format(int(len(noexp_players) / len(teams))))
     team_players = []
