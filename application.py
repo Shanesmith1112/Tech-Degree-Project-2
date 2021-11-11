@@ -15,10 +15,10 @@ def clean_data():
     for player in player_info:
         player["height"] = int(player["height"][:2])
         if player['experience'] == "YES":
-            player['experience'] = "TRUE"
+            player['experience'] = bool("True")
             exp_players.append(player)
         if player['experience'] == "NO":
-            player['experience'] = "FALSE"
+            player['experience'] = bool()
             noexp_players.append(player)
         player['guardians'] = player['guardians'].split(" and ")
 
